@@ -1,0 +1,24 @@
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    
+    border: 1px solid #ccc; /* Add grid lines */
+}
+
+.day {
+    padding: 10px;
+    border-right: 1px solid #ccc; /* Vertical grid lines */
+    border-bottom: 1px solid #ccc; /* Horizontal grid lines */
+}
+
+.event-chip {
+    padding: 5px;
+    margin: 5px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+.event-details {
+    margin-top: 20px;
+    display: none; /* Hidden by default */
+}

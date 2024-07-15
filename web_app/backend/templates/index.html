@@ -1,0 +1,153 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week Calendar</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='stylesi.css') }}">
+</head>
+<body>
+    <div class=week-name> Week of {{ current_date }} </div>
+<button id="showFormBtn">Add Event</button>
+<div class="form-overlay" id="formOverlay" style="display: none;">
+   <div>
+      <form action="/add_event" method="post">
+      <div class="form">
+         <label for="name">Name:</label><br>
+         <input type="text" id="name" name="name" required><br><br>
+         <label for="duration">Duration (in hrs):</label><br>
+         <input type="number" id="duration" name="duration"><br><br>
+         <label for="energy">Energy:</label><br>
+         <input type="number" id="energy" name="energy"><br><br>
+         <label for="priority">Priority:</label><br>
+         <input type="number" id="priority" name="priority"><br><br>
+        </div>
+        <div class="form">
+         <label for="deadline">Deadline:</label><br>
+         <input type="datetime-local" id="deadline" name="deadline"><br><br>
+        
+         <label for="fixed_start">Fixed Start Date:</label><br>
+         <input type="datetime-local" id="fixed_start" name="fixed_start"><br><br>
+         <label for="fixed_end">Fixed End Date:</label><br>
+         <input type="datetime-local" id="fixed_end" name="fixed_end"><br><br>
+      
+         
+         <label for="event_type">Event Type:</label><br>
+         <input type="text" id="event_type" name="event_type"><br><br>
+         <label for="dependency">Dependency:</label><br>
+         <input type="text" id="dependency" name="dependency"><br><br>
+      </div>
+      <input type="submit" value="Submit">
+   </div>
+</div>
+<button id="showSyncBtn">Sync with Google Calendar</button>
+
+    <div class="container">
+        <div class="spacer"> </div>
+        <div class="days">
+            <div class="day">Mon</div>
+            <div class="day">Tue</div>
+            <div class="day">Wed</div>
+            <div class="day">Thu</div>
+            <div class="day">Fri</div>
+            <div class="day">Sat</div>
+            <div class="day">Sun</div>
+        </div>
+        <div class="timeline">
+            {% for hour in range(24) %}
+            <div class="time-marker">{{ hour }}:00</div>
+            {% endfor %}
+            
+        </div>
+        <div class="week-display">
+            <!-- Loop to generate 168 elements for each hour of the week -->
+            {% for hour in range(168) %}
+            <div class="hour hour-{{hour}}"></div>
+            {% endfor %}
+        </div>
+        
+    </div>
+
+    <script>
+        document.getElementById("showSyncBtn").addEventListener("click", function() {
+            fetch('/read_gc', {
+                method: 'POST',
+            })
+            .then(response => {
+                // Check if the response is successful before reloading the page
+                if (response.ok) {
+                    location.reload(); // Reload the page
+                } else {
+                    console.error('Error:', response.statusText);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+
+
+        document.getElementById("showFormBtn").addEventListener("click", function() {
+            document.getElementById("formOverlay").style.display = "block";
+        });
+      
+        document.addEventListener("click", function(event) {
+            var formOverlay = document.getElementById("formOverlay");
+            var addbutton = document.getElementById("showFormBtn");
+            if ((event.target != formOverlay && !formOverlay.contains(event.target)) && event.target!=addbutton) {
+              formOverlay.style.display = "none";
+            }
+          });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var events = JSON.parse('{{ events|safe }}');
+            var activeHours = {{ active_hours }};
+            events.forEach(function(event) {
+                console.log(event)
+                var eventHour = new Date(event.fixedStart).getHours(); // Extract the hour from the fixed_start datetime
+                console.log(eventHour);
+                var eventDay = new Date(event.fixedStart).getDay(); // Extract the day from the fixed_start datetime
+                console.log(eventDay);
+                var hourIndex = 7*(eventHour) +  (eventDay - 1); // Calculate the index of the hour div
+                console.log(hourIndex);
+                var color = getRandomColor();
+                while(event.duration){
+                    var hourElement = document.querySelector('.hour-' + hourIndex); // Select the corresponding hour div
+                    console.log(hourElement);
+                    
+                    if (hourElement) {
+                        var newDiv = document.createElement('div');
+                        // Set any attributes or content for the new div
+                        newDiv.className = 'event'+event.id; // Add a class
+                        newDiv.textContent = event.name; // Add some text content
+                        newDiv.style.backgroundColor = color;
+                        newDiv.style.borderRadius = '10px';
+                        newDiv.style.height = '100%'
+                        newDiv.style.display = 'flex'; // Use flexbox layout
+                        newDiv.style.alignItems = 'center'; // Center the text vertically
+                        newDiv.style.justifyContent = 'center'; // Center the text horizontally
+                        // Append the new div as a child of hourElement
+                        hourElement.appendChild(newDiv);
+                       
+                    }
+                    event.duration--;
+                    hourIndex +=7;
+                }
+                
+            });
+        });
+        
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+        
+
+      </script>
+</body>
+</html>

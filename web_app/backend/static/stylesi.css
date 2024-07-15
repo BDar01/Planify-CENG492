@@ -1,0 +1,158 @@
+/* styles.css */
+* {
+    font-family: Helvetica;
+    font-size: 1em;
+    text-align: center;
+}
+.week-name {
+    color: #fe5a19ba;
+    font-size: 4em;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.container {
+    display: grid;
+    grid-template-columns:  max-content auto;
+    grid-template-rows: auto max-content; /* Define two columns, first column for days, second column for timeline and week-display */
+    margin: 0 auto;
+    width: 80%;
+    height: 700px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 1%;
+}
+
+.week-display {
+    grid-row: 2; /* Week-display will be placed in the second row */
+    grid-column: 2; /* Week-display will be placed in the second column */
+    width: auto; /* Adjust the width of the week display */
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* Adjust based on the number of columns */
+    padding: 10px; /* Add padding for better spacing */
+
+}
+
+.timeline {
+    grid-row: 2; 
+    grid-column: 1;
+    width: fit-content; /* Adjust the width of the timeline */
+    display: grid;
+    grid-template-rows: repeat(24,auto); /* Adjust based on the number of rows */
+    gap: 1px;
+    height: 98%;
+    margin-top: 25%;
+}
+.time-marker {
+    font-size: 1.2em;
+    color: #7c7b7b;
+}
+
+.hour {
+    border: 1px solid #ccc; /* Add border for each hour element */
+    padding: 30px; /* Add padding for better spacing */
+    background-color: #fdfdfdd8; /* Add background color for better visibility */
+   
+}
+
+
+/* Add more styles as needed */
+
+
+.days{
+    grid-row: 1 ;
+    grid-column: 2;
+    width: 30%;
+    display: grid;
+    grid-template-columns: repeat(7, 45%); /* Each column takes up equal space */
+    grid-template-rows: 2rem;
+    gap: 8px;
+    text-align: center;
+    padding: 1%;
+   
+
+    
+}
+.day {
+    padding: 10%;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    color: #7c7b7b;
+    font-size: 1.3em;
+}
+
+/* Form Overlay Styling */
+.form-overlay {
+    position: fixed;
+    top: 50%; /* Adjust position as needed */
+    left: 40%; /* Adjust position as needed */
+    transform: translate(-50%, -50%);
+    background-color: rgba(241, 250, 250, 0.888); /* Semi-transparent background */
+    z-index: 9999; /* Ensure the form overlay is on top of other elements */
+    padding: 20px;
+    border-radius: 1px;
+
+  }
+  
+  /* General Form Styling */
+  .form {
+    width: 60%; /* Adjust width as needed */
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    display: table-cell;
+    color: #000;
+    
+  }
+/* Label Styling */
+label {
+    font-weight: bold;
+    color: #000;
+}
+
+/* Input Field Styling */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="time"] {
+    width: 60%; /* Input fields take full width */
+    padding: 8px; /* Adjust padding as needed */
+    margin-bottom: 10px; /* Adjust margin as needed */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    color: #000;
+}
+
+/* Submit Button Styling */
+input[type="submit"] {
+    background-color:  #83b8c1;
+    color: rgb(10, 10, 10);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 1px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #2a4956;
+}
+
+/* Optional: Add more specific styling based on your preference */
+#showFormBtn, #showSyncBtn {
+    position: left;
+    right: 30%;
+    background-color: #ff4700;
+    border: none;
+    color: rgb(240, 234, 234);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 1%;
+    cursor: pointer;
+    border-radius: 10%;
+}
+.hour {
+    border: 0.1px solid #ccc;
+    padding: 3px;
+    height: 60px; /* Set a fixed height for all hour divs */
+    box-sizing: border-box; /* Include padding and border in the height calculation */
+    background-color: #fdfdfdd8; /* Add background color for better visibility */
+
+}

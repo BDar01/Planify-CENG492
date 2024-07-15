@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+{% block title %}
+Add event
+{% endblock  %}
+{% block content %}
+<div class=week-name> Week of {{ current_date }} </div>
+<button id="showFormBtn">Add Event</button>
+<div class="form-overlay" id="formOverlay" style="display: none;">
+   <div>
+      <form action="/add_event" method="post">
+      <div class="form">
+         <label for="name">Name:</label><br>
+         <input type="text" id="name" name="name" required><br><br>
+         <label for="duration">Duration (in hrs):</label><br>
+         <input type="number" id="duration" name="duration"><br><br>
+         <label for="energy">Energy:</label><br>
+         <input type="number" id="energy" name="energy"><br><br>
+         <label for="priority">Priority:</label><br>
+         <input type="number" id="priority" name="priority"><br><br>
+        </div>
+        <div class="form">
+         <label for="deadline">Deadline:</label><br>
+         <input type="datetime-local" id="deadline" name="deadline"><br><br>
+        
+         <label for="fixed_start">Fixed Start Date:</label><br>
+         <input type="datetime-local" id="fixed_start" name="fixed_start"><br><br>
+         <label for="fixed_end">Fixed End Date:</label><br>
+         <input type="datetime-local" id="fixed_end" name="fixed_end"><br><br>
+      
+         
+         <label for="event_type">Event Type:</label><br>
+         <input type="text" id="event_type" name="event_type"><br><br>
+         <label for="dependency">Dependency:</label><br>
+         <input type="text" id="dependency" name="dependency"><br><br>
+      </div>
+      <input type="submit" value="Submit">
+   </div>
+</div>
+<div class="calendar">
+   <div class="timeline">
+      <div class="spacer"></div>
+      <div class="time-marker">9 AM</div>
+      <div class="time-marker">10 AM</div>
+      <div class="time-marker">11 AM</div>
+      <div class="time-marker">12 PM</div>
+      <div class="time-marker">1 PM</div>
+      <div class="time-marker">2 PM</div>
+      <div class="time-marker">3 PM</div>
+      <div class="time-marker">4 PM</div>
+      <div class="time-marker">5 PM</div>
+      <div class="time-marker">6 PM</div>
+      <div class="time-marker">7 PM</div>
+      <div class="time-marker">8 PM</div>
+      <div class="time-marker">9 PM</div>
+   </div>
+   <div class="days">
+      <div class="day mon">
+         <div class="date">
+            <p class="date-num">9</p>
+            <p class="date-day">Mon</p>
+         </div>
+         <div class="events">
+            <div class="event start-2 end-5 securities">
+               <p class="title">Securities Regulation</p>
+               <p class="time">2 PM - 5 PM</p>
+            </div>
+         </div>
+      </div>
+      <div class="day tues">
+         <div class="date">
+            <p class="date-num">10</p>
+            <p class="date-day">Tue</p>
+         </div>
+         <div class="events">
+            <div class="event start-10 end-12 corp-fi">
+               <p class="title">Corporate Finance</p>
+               <p class="time">10 AM - 12 PM</p>
+            </div>
+            <div class="event start-1 end-4 ent-law">
+               <p class="title">Entertainment Law</p>
+               <p class="time">1PM - 4PM</p>
+            </div>
+         </div>
+      </div>
+      <div class="day wed">
+         <div class="date">
+            <p class="date-num">11</p>
+            <p class="date-day">Wed</p>
+         </div>
+         <div class="events">
+            <div class="event start-12 end-1 writing">
+               <p class="title">Writing Seminar</p>
+               <p class="time">11 AM - 12 PM</p>
+            </div>
+            <div class="event start-2 end-5 securities">
+               <p class="title">Securities Regulation</p>
+               <p class="time">2 PM - 5 PM</p>
+            </div>
+         </div>
+      </div>
+      <div class="day thurs">
+         <div class="date">
+            <p class="date-num">12</p>
+            <p class="date-day">Thu</p>
+         </div>
+         <div class="events">
+            <div class="event start-10 end-12 corp-fi">
+               <p class="title">Corporate Finance</p>
+               <p class="time">10 AM - 12 PM</p>
+            </div>
+            <div class="event start-1 end-4 ent-law">
+               <p class="title">Entertainment Law</p>
+               <p class="time">1PM - 4PM</p>
+            </div>
+         </div>
+      </div>
+      <div class="day fri">
+         <div class="date">
+            <p class="date-num">13</p>
+            <p class="date-day">Fri</p>
+         </div>
+         <div class="events">
+         </div>
+      </div>
+      <div class="day sat">
+         <div class="date">
+            <p class="date-num">14</p>
+            <p class="date-day">Sat</p>
+         </div>
+         <div class="events">
+         </div>
+      </div>
+      <div class="day sun">
+         <div class="date">
+            <p class="date-num">15</p>
+            <p class="date-day">Sun</p>
+         </div>
+         <div class="events">
+         </div>
+      </div>
+   </div>
+</div>
+
+<script>
+    document.getElementById("showFormBtn").addEventListener("click", function() {
+      document.getElementById("formOverlay").style.display = "block";
+    });
+  
+    document.addEventListener("click", function(event) {
+        var formOverlay = document.getElementById("formOverlay");
+        var addbutton = document.getElementById("showFormBtn");
+        if ((event.target != formOverlay && !formOverlay.contains(event.target)) && event.target!=addbutton) {
+          formOverlay.style.display = "none";
+        }
+      });
+  </script>
+{% endblock  %}

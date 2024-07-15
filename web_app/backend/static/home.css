@@ -1,0 +1,199 @@
+:root {
+    --numDays: 7;
+    --numHours: 13;
+    --timeHeight: 60px;
+    --calBgColor: #ffe2ce;
+    --eventBorderColor: #f2d3d8;
+    --eventColor1: #f9afa5;
+    --eventColor2: #fafaa3;
+    --eventColor3: #e2f8ff;
+    --eventColor4: #d1ffe6;
+  }
+  
+  .calendar {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: auto 1fr;
+    width: 80%;
+    margin: 0 auto; /* Center the container */
+
+  }
+  
+  .timeline {
+    display: grid;
+    grid-template-rows: repeat(var(--numHours), var(--timeHeight));
+  }
+  
+  .days {
+    display: grid;
+    grid-column: 2;
+    gap: 8px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+  
+  .events {
+    display: grid;
+    grid-template-rows: repeat(var(--numHours), var(--timeHeight));
+    border-radius: 5px;
+    background: var(--calBgColor);
+  }
+  
+  .start-10 {
+    grid-row-start: 2;
+  }
+  
+  .start-12 {
+    grid-row-start: 4;
+  }
+  
+  .start-1 {
+    grid-row-start: 5;
+  }
+  
+  .start-2 {
+    grid-row-start: 6;
+  }
+  
+  .end-12 {
+    grid-row-end: 4;
+  }
+  
+  .end-1 {
+    grid-row-end: 5;
+  }
+  
+  .end-3 {
+    grid-row-end: 7;
+  }
+  
+  .end-4 {
+    grid-row-end: 8;
+  }
+  
+  .end-5 {
+    grid-row-end: 9;
+  }
+
+  
+  .title {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+  
+  .event {
+    border: 1px solid var(--eventBorderColor);
+    border-radius: 5px;
+    padding: 0.5rem;
+    margin: 0 0.5rem;
+    background: white;
+  }
+  
+  .space,
+  .date {
+    height: 60px
+  }
+  
+  .week-name {
+    font-size: 4rem;
+    font-weight: 600;
+    display: block;
+  }
+  body {
+    font-family: system-ui, sans-serif;
+  }
+  
+  .corp-fi {
+    background: var(--eventColor1);
+  }
+  
+  .ent-law {
+    background: var(--eventColor2);
+  }
+  
+  .writing {
+    background: var(--eventColor3);
+  }
+  
+  .securities {
+    background: var(--eventColor4);
+  }
+  
+  .date {
+    display: flex;
+    gap: 0.5em;
+  }
+  
+  .date-num {
+    font-size: 3rem;
+    font-weight: 600;
+    display: inline;
+  }
+  
+  .date-day {
+    display: inline;
+    font-size: 3rem;
+    font-weight: 100;
+  }
+
+/* Form Overlay Styling */
+.form-overlay {
+    position: fixed;
+    top: 50%; /* Adjust position as needed */
+    left: 40%; /* Adjust position as needed */
+    transform: translate(-50%, -50%);
+    background-color: rgba(241, 250, 250, 0.888); /* Semi-transparent background */
+    z-index: 9999; /* Ensure the form overlay is on top of other elements */
+    padding: 20px;
+  }
+  
+  /* General Form Styling */
+  .form {
+    width: 60%; /* Adjust width as needed */
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    display: table-cell;
+    
+  }
+/* Label Styling */
+label {
+    font-weight: bold;
+}
+
+/* Input Field Styling */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="time"] {
+    width: 60%; /* Input fields take full width */
+    padding: 8px; /* Adjust padding as needed */
+    margin-bottom: 10px; /* Adjust margin as needed */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+/* Submit Button Styling */
+input[type="submit"] {
+    background-color:  #ffe2ce;
+    color: rgb(10, 10, 10);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #ffa977;
+}
+
+/* Optional: Add more specific styling based on your preference */
+#showFormBtn {
+    position: relative;
+    left: 10%;
+    background-color: #ffe2ce;
+
+    color: rgb(0, 0, 0);
+    margin-top: 20px;
+    margin-bottom: 0;
+    padding: 20px 20px;
+    
+    cursor: pointer;
+}
