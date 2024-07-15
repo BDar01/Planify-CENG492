@@ -1,0 +1,192 @@
+
+
+/* Label styling */
+label {
+    display: flex;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 12px;
+    position: relative;
+    overflow: hidden;
+    margin: 0.5em;
+    align-items: center; /* Aligns the radio button and text */
+    /* Accessible outline */
+    /* Remove comment to use */
+    /*
+    &:focus-within {
+        outline: .125em solid var(--primary-color);
+    }
+    */
+}
+
+
+.modal {
+  display: block;
+  position: relative;
+  left: 0;
+  top: 0;
+  overflow: auto;
+}
+
+.form-group{
+  width: max-content;
+}
+
+.modal{
+  width: max-content;
+  height: max-content;
+  padding: 5%;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  padding: 10px;
+  width: max-content;
+  height: max-content;
+}
+
+.optional-field-head, .btn-primary{
+  font-weight: 700;
+  background-color: #FF4700;
+  color: #ffffff;
+  text-decoration: 'none';
+  outline: 'none'; 
+  box-shadow: 'none';
+  border: 'none';
+  cursor: 'pointer';
+}
+
+ .optional-field-head:hover, .btn-primary:checked{
+background-color: #df4609;
+color: #ffffff;
+
+}
+
+.optional-field-head:active , .btn-primary:active {
+  background-color: #FF4700;
+
+}
+.btn-primary:focus {
+  background-color: #FF4700;
+
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    right: 10px;
+    
+    font-weight: bold;
+    
+    border-radius: 60%;
+    background-color: transparent;
+    border: none; /* Add a transparent border */
+    padding: 10px; /* Adjust padding */
+    margin: 1%;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #fb7038be;
+
+    
+  }
+  
+
+
+
+input {
+  width: 100%;
+  padding: 6px 2px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button[type="submit"] {
+  background-color: #FF4700;
+  color: white;
+  padding: 10px 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+button[type="submit"]:hover {
+  background-color: #df4609;
+}
+
+.smallcal {
+    width: 15rem;
+}
+
+.timeslots {
+    border-width: 0.5px;
+}
+
+.contain-cal {
+    padding: 2%;
+    
+}
+.weekly {
+  height: 500px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.mr-auto {
+  margin-right: 0px;
+}
+
+.times {
+  width: 40px;
+}
+
+.weekly::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+.weekly::-webkit-scrollbar
+{
+	width: 13px;
+	background-color: #F5F5F5;
+}
+
+.weekly::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #FF4700;
+}
+
+.radio-group {
+  display: flex;
+}
+
+.radio-group input[type="radio"] {
+  display: none; /* Hide the radio buttons */
+}
+
+.radio-group label {
+  margin-right: 10px; /* Adjust spacing between radio buttons */
+  padding: 5px 10px; /* Add padding to make buttons clickable */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  border-radius: 5px; /* Add border radius for rounded corners */
+}
+
+/* Hover effect */
+.radio-group label:hover {
+  background-color: #e0e0e0; /* Change background color on hover */
+}
+
+/* Selected effect */
+.radio-group input[type="radio"]:checked + label {
+  background-color: #FF4700; /* Change background color when selected */
+}

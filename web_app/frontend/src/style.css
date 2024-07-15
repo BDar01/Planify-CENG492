@@ -1,0 +1,18 @@
+.include-sidebar {
+  display: grid;
+  grid-template-columns: 0.5fr 10fr;
+  height: 100%;
+}
+
+.sidebar {
+  width: 10px;
+}
+
+.include-sidebar,
+.nav-logo {
+  transition: 0.5s;
+}
+
+.text-black {
+  color: #000 !important;
+}

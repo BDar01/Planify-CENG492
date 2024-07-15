@@ -1,0 +1,22 @@
+.open-menu {
+    display: flex;
+    width: fit-content;
+    min-width: 20%;
+}
+.show {
+    width: fit-content;
+    min-width: 20%;
+
+}
+
+.dropdown-menu{
+    width: fit-content;
+    min-width: 20%;
+    left: 70%;
+}
+
+.dropdown {
+    display: flex;
+    justify-content: end;
+    width: auto;
+}

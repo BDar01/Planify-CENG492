@@ -1,0 +1,88 @@
+/* styles.css */
+
+/* styles.css */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Darkens the background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999; /* Ensure it is on top of other elements */
+  }
+
+.popup {
+  width: max-content;
+}
+.popup-inner {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 350px;
+    text-align: center;
+    z-index: 1000; /* Ensure it is on top of the overlay */
+}
+.label-for-popup {
+    display: flex;
+    justify-content: space-around;
+    padding: 2px;
+    margin: 10px;
+    font-size: medium;
+}
+.s-button{
+    border-radius: 20px;
+    padding: 10px;
+    background-color: #ff4700;
+    margin: 5px;
+}
+
+.checkbox {
+  transform: scale(1.5);
+}
+
+.cancel-btn{
+    border-radius: 20px;
+    padding: 10px;
+    background-color: #e1e1e1;
+    margin: 5px;
+
+}
+input {
+    width: fit-content;
+  }
+
+.select-complete {
+  
+    margin: 2%;
+    font-size: xx-large;
+
+}
+
+.others-resc {
+  margin: 2%;
+    font-size: larger;
+}
+/*   
+.popup {
+    position: absolute;
+    background-color: #f05311d4;
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 99999;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .popup-inner {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    text-align: center;
+  }
+   */

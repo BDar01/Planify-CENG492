@@ -1,0 +1,36 @@
+.radio-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.radio-group input[type="radio"] {
+    display: none; /* Hide the radio buttons */
+}
+
+.radio-group label {
+    padding: 5px 10px; /* Add padding to make buttons clickable */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    
+}
+
+/* Hover effect */
+.radio-group label:hover {
+    background-color: #e0e0e0b5; /* Change background color on hover */
+}
+
+/* Selected effect */
+.radio-group input[type="radio"]:checked + label {
+    background-color: #FF4700; /* Change background color when selected */
+}
+
+/* Change background color of the input when selected */
+.radio-group input[type="radio"]:checked {
+    background-color: #FF4700;
+}
+
+label {
+    display: flex;
+    justify-content: flex-start;
+}
