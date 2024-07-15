@@ -1,0 +1,36 @@
+Planify Application - Privacy Policy
+
+
+Introduction: We are working on a final year project for scheduling tasks in Middle East Technical University in the Computer Engineering Department within the CENG492 Design II course as a group of students. This privacy policy is meant to clarify data usage and is intended for only the group, fellow students and our supervisors until completion of the application.
+
+Information Collection: Our application will read events from a user’s Google Calendar and write newly scheduled events to their Calendar. It will also keep a user’s Google email address for authentication at sign-in.
+
+
+How Information is Collected: Information is collected through user input, by providing their Google email address and authenticating access to their Google Calendar events data.
+
+
+Use of Information: We will be collecting email addresses for user registration for authentication and communication purposes. We will also access Google Calendar events data to read a user’s events into our database, and write new events scheduled by our system to their Google Calendar.
+
+
+Data Sharing: The data collected will not be shared with any other parties, it will solely be handled by our system.
+
+
+Data Security: We utilize the OAuth2.0 authentication workflow to allow users to grant access to the required scopes for our application, which is stored in a token secured using hashing to prevent misuse of it.
+
+
+Data Retention: Data will be retained until the end of the academic project, after which we will determine if the application has any future development prospects. In such a case, we will attempt to publish it as a full-fledged user application.
+
+
+User Rights: Users have the right to access their stored events data, correct their personal information, which will be deleted from our system on deleting their account.
+
+
+Changes to the Privacy Policy: The privacy policy may be updated over the course of the academic project, depending on the changes implemented to our implementation. We will notify users via their contact details if a change is made, allowing them to opt out of our application if desired.
+
+
+
+Contact Information: The email addresses to contact for queries about our project are:
+
+Nihal Taşcı, Ahmet Burak Kocabörek, Tahira Kazimi, Basim Dar, Hana Elboghdady
+Members' emails: e226468@metu.edu.tr, e239601@metu.edu.tr, e241535@metu.edu.tr, e248926@metu.edu.tr, e245556@metu.edu.tr 
+
+
